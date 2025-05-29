@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Student Portal</title>
+  <link rel="stylesheet" href="/CSS/learn-more.css" />
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Student Portal</h1>
+  <p>Your digital companion for college life</p>
+</header>
+
+<main>
+  <section class="intro">
+    <h2>About Our Website</h2>
+    <p>
+      Our Student Portal is designed to make your college experience smooth, connected, and productive.
+      From planning your studies to checking cafeteria menus and sharing notes, we cover it all.
+    </p>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <ul>
+      <li>🎉 College Events</li>
+      <li>📝 Study Planner</li>
+      <li>👨‍🏫 Faculty Directory</li>
+      <li>📢 Complaint Box</li>
+      <li>🔍 Lost & Found</li>
+      <li>🍔 Cafeteria Menu</li>
+      <li>📚 Library System</li>
+      <li>📖 Note Sharing</li>
+      <li>🔗 Useful External Links</li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2>Stay Connected</h2>
+    <p>
+      Need help or have feedback? <br />
+      <button onclick="showContact()">Contact Us</button>
+    </p>
+    <div id="contact-info" class="hidden">
+      📧 Email: support@studentportal.edu <br />
+      ☎️ Phone: +91-12345-67890
+    </div>
+  </section>
+</main>
+
+
+<script>
+function showContact() {
+	  const info = document.getElementById("contact-info");
+	  info.classList.toggle("hidden");
+	}
+
+</script>
+</body>
+</html>

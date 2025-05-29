@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <!-- Rounded Styles -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+
+    <!-- Straight Styles -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+
+    <title>Faculty</title>
+
+    
+    <link rel="stylesheet" href="/CSS/faculty.css">
+</head>
+<body>
+
+
+    <header>
+        <a href="/home"><img src="/Image/logo.png" alt="" id="logo"></a>
+        <nav>
+        <ul class="navbar">
+            <li><a href="/event">Event</a></li>
+            <li><a href="/task">Study Planner</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Resource</a>
+                <div class="dropdown-content">
+                    <div class="grid-bar">
+                        <div class="column">
+                            <h6>Campus Resources</h6>
+                            <a href="/faculty">Faculty Directory</a>
+                            <p>Contact information for professors</p>
+                            <a href="/complaints/admin">Complain Box</a>
+                            <p>Submit and track complaints</p>
+                            <a href="/lost-found/list">Lost & Found</a>
+                            <p>Report lost items or find claimed items</p>
+                        </div>
+                        <div class="column">
+                            <h6>Academic</h6>
+                            <a href="/menu">Cafeteria Menu</a>
+                            <p>Check food availability and prices</p>
+                            <a href="/library">Library System</a>
+                            <p>Manage books and payments</p>
+                            <a href="/upload/files">Note Sharing</a>
+                            <p>Share and access study materials</p>
+                        </div>
+                        <div class="column">
+                            <h6>Opportunities</h6>
+                            <a href="/links">External Links</a>
+                            <p>Scholarships, internships, and more</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav><div class="log-sign">
+            <a href="/logout" ><button id="login" >Log Out</button></a> 
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+    <div class="heading">
+        <div>
+            <h1><i class="fi fi-rr-users-alt"></i> Faculty Directory</h1>
+            <p>Connect with our professors and staff. Find contact information, office hours, and specializations.</p>
+        </div>
+        <div class="action">
+            <div class="admin-tools-container" th:if="${choice == 'admin'}">
+                <button class="admin-tools-button">Admin Actions ⏷</button>
+                <div class="admin-tools-dropdown">
+                    <form th:action="@{/event/delete-by-name}" method="get" class="admin-tools-form">
+                        <input id="name" name="name" type="text" placeholder="Enter exact event name" required>
+                        <button type="submit" class="admin-btn admin-btn-danger">Delete</button>
+                    </form>
+                    <a href="/faculty/faculty-form" class="admin-btn admin-btn-primary">Add New Event</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div th:each="faculty : ${faculty}">
+            <div class="main-box">
+                <div class="img-box">
+                    <img th:if="${faculty.base64Image != null}" 
+                         th:src="'data:image/jpeg;base64,' + ${faculty.base64Image}" 
+                         alt="Faculty Image" class="img" />
+                    <img th:if="${faculty.base64Image == null}" 
+                         src="/static/Image/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" 
+                         alt="Default Image" class="img" />
+                </div>
+                <div class="outer-div">
+                    <h2 th:text="${faculty.facultyName}">Ankit Soni</h2>
+                    <div class="inner-div">
+                        <i class="fi fi-rr-book-bookmark"></i>
+                        <p th:text="${faculty.facultySubject}">Java Spring Boot</p>
+                    </div>
+                    <div class="inner-div">
+                        <i class="fi fi-rr-envelope"></i>
+                        <p th:text="${faculty.email}">ankit@gmail.com</p>
+                    </div>
+                    <div class="inner-div">
+                        <i class="fi fi-rs-marker"></i>
+                        <p th:text="${faculty.address}">CV Raman Room 121</p>
+                    </div>
+                </div>
+                <div class="outer-div" id="contact-box">
+                    <div class="inner-div">
+                        <i class="fi fi-tr-address-book"></i>
+                        <p th:text="${faculty.contact}">123456789</p>
+                    </div>
+                    <div class="inner-div">
+                        <i class="fi fi-rr-globe"></i>
+                        <p th:text="${faculty.department}">Computer Science and Engineering</p>
+                    </div>
+                </div>
+                <div class="show">
+                    <button class="toggle-btn" onclick="toggleDetails(this)">Show More</button>
+                </div>
+            </div>
+
+            <div class="more-details" style="display:none;">
+                
+                <div class="hide-content">
+                    <div class="hide-div">
+                        <p>Publication</p>
+                        <p th:text="${faculty.publication}">2</p>
+                    </div>
+                    <div class="hide-div">
+                        <p>Experience (in Years)</p>
+                        <p th:text="${faculty.experince}">3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <footer>
+    <div class="footer">
+        <div class="footer-logo">
+            <img src="/Image/logo.png" alt="logo" class="footer-img">
+            <p>The all-in-one platform for university life, helping students and faculty connect, organize, and thrive.</p>
+        </div>
+        <div class="footer-div">
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Navigation</li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/event">Events</a></li>
+                    <li><a href="/planner">Study Planner</a></li>
+                    <li><a href="/faculty">Faculty</a></li>
+                    <li><a href="/library">Library</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Resource</li>
+                    <li><a href="/complaints/admin">Complain Box</a></li>
+                    <li><a href="/lost-found/list">Lost & Found</a></li>
+                    <li><a href="/menu">Cafeteria Menu</a></li>
+                    <li><a href="/upload/files">Note Sharing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Opportunities</li>
+                    <li><a href="/links">External Links</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Legal</li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/cookies">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="icons">
+        <p>&copy; All rights reserved.</p>
+        <div class="socail-links">
+            <i class="fi fi-brands-instagram"></i>
+            <i class="fi fi-brands-facebook"></i>
+            <i class="fi fi-brands-telegram"></i>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const flash = document.getElementById("flash-message");
+        if (flash) {
+            flash.style.display = "block";
+            setTimeout(() => {
+                flash.style.opacity = "0";
+                setTimeout(() => flash.remove(), 500); // Remove after fade-out
+            }, 3000); // Show for 3 seconds
+        }
+    });
+</script>
+</body>
+</html>

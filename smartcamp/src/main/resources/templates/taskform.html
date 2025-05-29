@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create/Edit Task</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #e1bee7);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .task-form {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            width: 500px;
+        }
+
+        .task-form h2 {
+            color: #6a1b9a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        textarea {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: border 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #8e24aa;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            width: 100%;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #8e24aa;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #6a1b9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-form">
+        <h2>Create New Task</h2>
+        <form th:action="@{/task/save-task}" th:object="${tasks}" method="post">
+           
+            <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" th:field="*{taskName}" placeholder="Enter Task Name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" th:field="*{subject}" placeholder="Enter Subject" required />
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" th:field="*{date}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" th:field="*{time}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="detail">Details:</label>
+                <textarea id="detail" th:field="*{detail}" placeholder="Enter task details"></textarea>
+            </div>
+
+            <button type="submit">Save Task</button>
+        </form>
+    </div>
+</body>
+</html>

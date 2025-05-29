@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <!-- Rounded Styles -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+
+<!-- Straight Styles -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+
+
+    <title>Home</title>
+    <link rel="stylesheet" href="/CSS/home.css">
+</head>
+<body>
+    <div >
+        <a href="http://127.0.0.1:5000">
+            <div class="ball-container">
+                <div class="ball">
+					<img src="#" alt="">
+                </div>
+            </div>
+        </a>
+    </div>
+    <header>
+        
+            <a href="/home"><img src="/Image/logo.png" alt="" id="logo"></a>
+        
+
+<nav>
+        <ul class="navbar">
+            <li><a href="/event">Event</a></li>
+            <li><a href="/task">Study Planner</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Resource</a>
+                <div class="dropdown-content">
+                    <div class="grid-bar">
+                        <div class="column">
+                            <h6>Campus Resources</h6>
+                            <a href="/faculty">Faculty Directory</a>
+                            <p>Contact information for professors</p>
+                            <a href="/complaints/admin">Complain Box</a>
+                            <p>Submit and track complaints</p>
+                            <a href="/lost-found/list">Lost & Found</a>
+                            <p>Report lost items or find claimed items</p>
+                        </div>
+                        <div class="column">
+                            <h6>Academic</h6>
+                            <a href="/menu">Cafeteria Menu</a>
+                            <p>Check food availability and prices</p>
+                            <a href="/library">Library System</a>
+                            <p>Manage books and payments</p>
+                            <a href="/upload/files">Note Sharing</a>
+                            <p>Share and access study materials</p>
+                        </div>
+                        <div class="column">
+                            <h6>Opportunities</h6>
+                            <a href="/links">External Links</a>
+                            <p>Scholarships, internships, and more</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>        <div class="log-sign">
+           <a href="/logout" ><button id="login" >Log Out</button></a> 
+           
+        </div>
+    </header>
+
+
+    <!-- body -->
+     <div class="body-part">
+        <div class="body-welcome">
+            <div class="green-circle"></div>
+            <h3>Welcome to the future of campus life</h3>
+            
+            
+        </div>
+        <p class="para-one-body">Your Ultimate University Platform</p>
+        
+        <p class="para-two-body">Campuso brings together everything you need for a seamless university experience—from event scheduling to study planning, all in one elegant platform.</p>
+        <div class="log-sign-button">
+            <button class="body-button" id="Started" onclick="scrollToSection('main-grid')">Get Started</button>
+            <a href="/learn-more"><button class="body-button" id="learn">Learn More</button></a>
+        </div>
+     </div>
+
+     <!-- animation  -->
+    <!-- aniamtion -->
+
+
+    <!-- tools -->
+     <div class="tools">
+        <h3 class="tools-head">All the tools you need</h3>
+        <p class="tools-para">Campuso provides a comprehensive suite of features designed to enhance every aspect of university life, from academics to social activities.</p>
+     </div>
+     <div class="main-grid">
+        <div class="tool-grid">
+            
+            <div class="grid-box" onclick="window.location='/event'" style="cursor: pointer;" >
+                <i class="fi fi-rr-calendar-check"></i>
+                <h5>Event Scheduling</h5>
+                <p class="grid-para">Register and manage campus events with ease. Get notified about upcoming activities.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+           
+            <div class="grid-box" onclick="window.location='/task'" style="cursor: pointer;">
+                <i class="fi fi-rr-books"></i>
+
+                <h5>Study Planner</h5>
+                <p class="grid-para">Register and manage campus events with ease. Get notified about upcoming activities.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/faculty'" style="cursor: pointer;">
+				<i class="fi fi-rr-users"></i>
+                <h5>Faculty Directory</h5>
+                <p class="grid-para">Access professor information including contact details and office hours.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/complaints/admin'" style="cursor: pointer;">
+                <i class="fi fi-rr-messages"></i>
+                <h5>Complaint Box</h5>
+                <p class="grid-para">Submit and track complaints across various categories with a unique tracking ID.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/lost-found/list'" style="cursor: pointer;">
+                <i class="fi fi-rr-search"></i>
+                <h5>Lost & Found</h5>
+                <p class="grid-para">Report lost items or submit found items with images and contact information.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/menu'" style="cursor: pointer;">
+                <i class="fi fi-rr-mug-hot-alt"></i>
+                <h5>Cafeteria Menu</h5>
+                <p class="grid-para">View daily food options with availability, portion size, and pricing information.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/library'" style="cursor: pointer;">
+                <i class="fi fi-rr-book-alt"></i>
+                <h5>Library System</h5>
+                <p class="grid-para">Track borrowed books, due dates, and fines. Pay outstanding fees online.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/upload/files'" style="cursor: pointer;">
+                <i class="fi fi-rr-edit"></i>
+                <h5>Note Sharing</h5>
+                <p class="grid-para">Access and share course notes organized by subject. Discuss questions with peers.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            <div class="grid-box" onclick="window.location='/links'" style="cursor: pointer;">
+                <i class="fi fi-rr-link-alt"></i>
+                <h5>External Links</h5>
+                <p class="grid-para">Discover curated resources for scholarships, internships, jobs, and free courses.</p>
+                <div class="grid-link">
+                    <p>Learn More</p>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+ <footer id="main-grid">
+    <div class="footer">
+        <div class="footer-logo">
+            <img src="/Image/logo.png" alt="logo" class="footer-img">
+            <p>The all-in-one platform for university life, helping students and faculty connect, organize, and thrive.</p>
+        </div>
+        <div class="footer-div">
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Navigation</li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/event">Events</a></li>
+                    <li><a href="/planner">Study Planner</a></li>
+                    <li><a href="/faculty">Faculty</a></li>
+                    <li><a href="/library">Library</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Resource</li>
+                    <li><a href="/complaints/admin">Complain Box</a></li>
+                    <li><a href="/lost-found/list">Lost & Found</a></li>
+                    <li><a href="/menu">Cafeteria Menu</a></li>
+                    <li><a href="/upload/files">Note Sharing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Opportunities</li>
+                    <li><a href="/links">External Links</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Legal</li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/cookies">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="icons">
+        <p>&copy; All rights reserved.</p>
+        <div class="socail-links">
+            <i class="fi fi-brands-instagram"></i>
+            <i class="fi fi-brands-facebook"></i>
+            <i class="fi fi-brands-telegram"></i>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    
+    
+    function scrollToSection(id) {
+    	  const section = document.querySelector(`.${id}`);
+    	  if (section) {
+    	    section.scrollIntoView({ behavior: 'smooth' });
+    	  }
+    	}
+
+</script>
+</body>
+</html>

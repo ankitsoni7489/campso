@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafeteria Menu</title>
+    <link rel="stylesheet" href="/CSS/menu.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <!-- Rounded Styles -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+
+<!-- Straight Styles -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+    
+</head>
+<body>
+
+    <header>
+        
+            <a href="/home"><img src="/Image/logo.png" alt="" id="logo"></a>
+
+<nav>
+        <ul class="navbar">
+            <li><a href="/event">Event</a></li>
+            <li><a href="/task">Study Planner</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Resource</a>
+                <div class="dropdown-content">
+                    <div class="grid-bar">
+                        <div class="column">
+                            <h6>Campus Resources</h6>
+                            <a href="/faculty">Faculty Directory</a>
+                            <p>Contact information for professors</p>
+                            <a href="/complaints/admin">Complain Box</a>
+                            <p>Submit and track complaints</p>
+                            <a href="/lost-found/list">Lost & Found</a>
+                            <p>Report lost items or find claimed items</p>
+                        </div>
+                        <div class="column">
+                            <h6>Academic</h6>
+                            <a href="/menu">Cafeteria Menu</a>
+                            <p>Check food availability and prices</p>
+                            <a href="/library">Library System</a>
+                            <p>Manage books and payments</p>
+                            <a href="/upload/files">Note Sharing</a>
+                            <p>Share and access study materials</p>
+                        </div>
+                        <div class="column">
+                            <h6>Opportunities</h6>
+                            <a href="/links">External Links</a>
+                            <p>Scholarships, internships, and more</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+     <div class="log-sign">
+        <a href="/logout" ><button id="login" >Log Out</button></a> 
+        
+     </div>
+</header>
+<div class="heading">
+    <div>
+    	<h1>Cafeteria Menu</h1>
+    	<p>Explore our daily offerings, check food availability, portions, and prices.</p>
+    </div>
+    <div class="admin-form" th:if="${choice == 'admin'}">
+    	<form th:action="@{/menu/delete-by-name}" method="post" >
+		    
+		    <input id="name" name="name" type="text" placeholder="Enter Exact Food Name" required>
+		    <button type="submit" class="admin-btn admin-btn-danger">Delete</button>
+		</form>
+		<a href="/menu/food-form" class="admin-btn admin-btn-primary">Add New Event</a>
+    </div>
+</div>
+<h1 class="list-head">Cafeteria Menu</h1>
+
+<div class="table-box">
+	<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>Price</th>
+            <th>Shop Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item : ${food}">
+            <td th:text="${item.foodId}">1</td>
+            <td th:text="${item.foodName}">Veg Sandwich</td>
+            <td th:text="${item.price}">45.00</td>
+            <td th:text="${item.shopName}">Campus Café</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<!-- Delete Food Item by Name -->
+
+
+<footer>
+    <div class="footer">
+        <div class="footer-logo">
+            <img src="/Image/logo.png" alt="logo" class="footer-img">
+            <p>The all-in-one platform for university life, helping students and faculty connect, organize, and thrive.</p>
+        </div>
+        <div class="footer-div">
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Navigation</li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/event">Events</a></li>
+                    <li><a href="/planner">Study Planner</a></li>
+                    <li><a href="/faculty">Faculty</a></li>
+                    <li><a href="/library">Library</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Resource</li>
+                    <li><a href="/complaints/admin">Complain Box</a></li>
+                    <li><a href="/lost-found/list">Lost & Found</a></li>
+                    <li><a href="/menu">Cafeteria Menu</a></li>
+                    <li><a href="/upload/files">Note Sharing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Opportunities</li>
+                    <li><a href="/links">External Links</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul class="footer-ul">
+                    <li class="footer-li">Legal</li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/cookies">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="icons">
+        <p>&copy; All rights reserved.</p>
+        <div class="socail-links">
+            <i class="fi fi-brands-instagram"></i>
+            <i class="fi fi-brands-facebook"></i>
+            <i class="fi fi-brands-telegram"></i>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const flash = document.getElementById("flash-message");
+        if (flash) {
+            flash.style.display = "block";
+            setTimeout(() => {
+                flash.style.opacity = "0";
+                setTimeout(() => flash.remove(), 500); // Remove after fade-out
+            }, 3000); // Show for 3 seconds
+        }
+    });
+</script>
+</body>
+</html>

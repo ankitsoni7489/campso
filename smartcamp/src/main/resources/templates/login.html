@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <link rel="stylesheet" href="/CSS/login.css">
+<title>Insert title here</title>
+
+
+</head>
+<body>
+    <div class="outer">
+      
+        <form action="/login" method="post" class="inner">
+            <h3>Log In</h3>
+            <input type="text" name="username" id="username" placeholder="Enter Your Username">
+            <input type="password" name="password" id="password" placeholder="Enter Your Password">
+            <label class="showPassword">
+  				<input type="checkbox" id="showPassword"> Show Password
+			</label>
+            <div class="choice-div">
+    			<label><input type="radio" name="choice" value="admin" class="choice" checked> Staff</label>
+    			<label><input type="radio" name="choice" value="student" class="choice"> Student</label>
+			</div>
+			<button type="submit">Login</button>
+            <p><a href="/forgot">Forget Password?</a></p>
+            
+            
+        </form>
+        
+    </div>
+    
+    <script>
+  		const passwordInput = document.getElementById('password');
+  		const showPasswordCheckbox = document.getElementById('showPassword');
+
+  		showPasswordCheckbox.addEventListener('change', function () {
+    	passwordInput.type = this.checked ? 'text' : 'password';
+  		});
+	</script>
+    
+</body>
+</html>

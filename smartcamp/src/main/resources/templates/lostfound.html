@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Report Lost or Found Item</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6fb;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fafafa;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #6366f1;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #6366f1;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #4f46e5;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Report Lost or Found Item</h2>
+        <form th:action="@{/lost-found/submit}" th:object="${item}" method="post">
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required/>
+
+            <label>Category:</label>
+            <input type="text" th:field="*{category}" required/>
+
+            <label>Location:</label>
+            <input type="text" th:field="*{location}" required/>
+
+            <label>Description:</label>
+            <textarea th:field="*{description}" rows="4" cols="50"></textarea>
+
+            <label>Contact Info:</label>
+            <input type="text" th:field="*{contact}" required/>
+
+            <label>Status:</label>
+            <select th:field="*{status}">
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

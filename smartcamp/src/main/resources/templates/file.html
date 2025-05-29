@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .upload-container {
+            max-width: 500px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container">
+    <h2>Upload a File</h2>
+
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" required>
+
+        <label for="uploadedBy">Uploaded By:</label>
+        <input type="text" name="uploadedBy" id="uploadedBy" required>
+
+        <label for="file">Choose File:</label>
+        <input type="file" name="file" id="file" required>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    <p th:if="${message}" th:text="${message}"></p>
+</div>
+
+</body>
+</html>
