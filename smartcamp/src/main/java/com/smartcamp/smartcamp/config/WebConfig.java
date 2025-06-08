@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(@NonNull InterceptorRegistry registry) {
         registry.addInterceptor(authInterceptor)
-                .addPathPatterns("/home").excludePathPatterns("/login", "/css/**", "/js/**", "/images/**");
+                .addPathPatterns("/home").excludePathPatterns("/login", "/css/**", "/js/**", "/images/**", "/home");
     }
     @Bean
     public ServletWebServerFactory servletContainer() {

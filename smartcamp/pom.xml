@@ -92,11 +92,6 @@
 		</dependency>
 		
 		
-	<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <scope>runtime</scope>
-</dependency>
 
 	</dependencies>
 
@@ -128,11 +123,7 @@
 				</configuration>
 				
 			</plugin>
-			<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.4.2</version>
-    </plugin>
+			
 		</plugins>
 	</build>
 	

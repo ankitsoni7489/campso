@@ -264,6 +264,7 @@
     }
     .tracking-form input[type="text"] {
         width: 100%;
+        height: 40px;
         padding: 10px 12px;
         font-size: 16px;
         border-radius: 8px;

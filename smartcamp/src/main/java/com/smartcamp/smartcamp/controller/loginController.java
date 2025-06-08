@@ -34,7 +34,7 @@ public class loginController {
     
     private Map<String, OtpStore> otpMap = new HashMap<>();
     
-    @GetMapping("/")
+    @GetMapping("/login")
     public String showLoginPage() {
         return "login"; 
     }
